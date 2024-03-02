@@ -1,15 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import './NavBar.css'
 
-function NavBar() {
+const NavBar = ({ logout }) => {
 	return (
 		<nav>
-			<NavLink to='/' className='nav-link'>
-				Home
-			</NavLink>
-			<NavLink to='/about' className='nav-link'>
-				About
-			</NavLink>
+			<NavLink to='/' className='nav-link'>Home</NavLink>
+			<NavLink to='/about' className='nav-link'>About</NavLink>
+      <button onClick={logout}>Logout</button>
 		</nav>
 	)
 }

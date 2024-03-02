@@ -1,20 +1,23 @@
 import { useState } from 'react'
+import { useOutletContext } from 'react-router-dom'
 
-function Login() {
+const Login = () => { //! Access the login fn passed as context
+  const login = useOutletContext()
 	const [formData, setFormData] = useState({
 		username: '',
 		password: ''
 	})
 
-	function handleChange(e) {
+	const handleChange = e => {
 		setFormData({
 			...formData,
 			[e.target.name]: e.target.value
 		})
 	}
 
-	function handleLogin(e) {
+	const handleLogin = e => {
 		e.preventDefault()
+    login() // call login fn when form is submitted
 	}
 
 	return (
